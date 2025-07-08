@@ -2,10 +2,223 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Block CoreX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Block CoreX | Plataforma de Minería y Criptoactivos</title>
+  <meta name="description" content="Block CoreX es una empresa de tecnología blockchain especializada en minería de Bitcoin, activos digitales y soluciones financieras descentralizadas." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #0d0d0d;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+    header {
+      padding: 2rem;
+      background: linear-gradient(90deg, #0f0f0f, #1a1a1a);
+      border-bottom: 1px solid #222;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #00ffe1;
+    }
+    .nav-links a {
+      color: #f5f5f5;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover {
+      color: #00ffe1;
+    }
+    .hero {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: radial-gradient(circle at center, #1a1a1a, #0d0d0d);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #00ffe1;
+    }
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #ccc;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-button {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: #00ffe1;
+      color: #000;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #00cbb8;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .features, .about, .roadmap, .contact {
+      margin-top: 4rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #00ffe1;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid #333;
+      transition: transform 0.2s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    .feature-title {
+      font-size: 1.2rem;
+      color: #00ffe1;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .feature-desc {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+    footer {
+      padding: 3rem 2rem;
+      background-color: #111;
+      text-align: center;
+      border-top: 1px solid #222;
+    }
+    footer p {
+      color: #777;
+      font-size: 0.9rem;
+    }
+    .email-form input[type=email] {
+      padding: 1rem;
+      width: 100%;
+      max-width: 400px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .email-form button {
+      padding: 1rem 2rem;
+      background-color: #00ffe1;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .email-form button:hover {
+      background-color: #00cbb8;
+    }
+  </style>
 </head>
 <body>
-  <h1>Bienvenido a Block CoreX</h1>
-  <p>Próximamente nuestra web oficial.</p>
+  <header>
+    <nav>
+      <div class="logo">BLOCK COREX</div>
+      <div class="nav-links">
+        <a href="#features">Productos</a>
+        <a href="#about">Quiénes somos</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#contact">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Minería de Bitcoin y soluciones cripto avanzadas</h1>
+    <p>Descubre cómo Block CoreX revoluciona la industria blockchain con servicios de minería, generación de ingresos pasivos y herramientas inteligentes impulsadas por IA.</p>
+    <button class="cta-button">Comienza ahora</button>
+  </section>
+
+  <section id="features" class="features">
+    <h2 class="section-title">Nuestros Productos</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3 class="feature-title">Minería BTC Automatizada</h3>
+        <p class="feature-desc">Accede a minería de Bitcoin sin complicaciones técnicas. Plataforma fácil, rápida y segura.</p>
+      </div>
+      <div class="feature-card">
+        <h3 class="feature-title">Wallets Multi-Cripto</h3>
+        <p class="feature-desc">Administra tus activos digitales con nuestra wallet segura y con soporte para múltiples blockchains.</p>
+      </div>
+      <div class="feature-card">
+        <h3 class="feature-title">Plataforma IA de Oportunidades</h3>
+        <p class="feature-desc">Detecta nuevas oportunidades de inversión gracias a algoritmos de IA y análisis en tiempo real.</p>
+      </div>
+      <div class="feature-card">
+        <h3 class="feature-title">Pagos con Cripto y Fiat</h3>
+        <p class="feature-desc">Acepta pagos globales en Bitcoin, Ethereum, Binance Pay, tarjetas y más.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2 class="section-title">¿Quiénes somos?</h2>
+    <p>Block CoreX es una empresa de tecnología financiera centrada en la innovación blockchain. Nuestro equipo combina expertos en desarrollo de software, economía digital e inteligencia artificial. Buscamos democratizar el acceso a servicios financieros a través de soluciones confiables, escalables y seguras.</p>
+  </section>
+
+  <section id="roadmap" class="roadmap">
+    <h2 class="section-title">Nuestro Roadmap</h2>
+    <ul>
+      <li><strong>Q3 2025:</strong> Lanzamiento de la plataforma de minería BTC.</li>
+      <li><strong>Q4 2025:</strong> Integración con wallets y pagos internacionales.</li>
+      <li><strong>Q1 2026:</strong> Inteligencia artificial para predicción de oportunidades cripto.</li>
+      <li><strong>Q2 2026:</strong> Expansión global con soporte 24/7.</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contáctanos</h2>
+    <p>¿Listo para comenzar o tienes dudas? Déjanos tu correo y te contactaremos.</p>
+    <form class="email-form">
+      <input type="email" placeholder="blockcorecontact@gmail.com" required>
+      <br>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Block CoreX. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
