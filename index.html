@@ -1,224 +1,354 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Block CoreX | Plataforma de Minería y Criptoactivos</title>
-  <meta name="description" content="Block CoreX es una empresa de tecnología blockchain especializada en minería de Bitcoin, activos digitales y soluciones financieras descentralizadas." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background-color: #0d0d0d;
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Block CoreX | Minería en la nube, IA y servicios cripto</title>
+<meta name="description" content="Block CoreX: Plataforma profesional de minería en la nube, pagos digitales, y soluciones con inteligencia artificial aplicadas al ecosistema blockchain." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+<style>
+  /* Variables y base */
+  :root {
+    --bg: #0a0a0a;
+    --text: #f0f0f0;
+    --accent: #00ffe0;
+    --muted: #888;
+    --card-bg: #111;
+    --border-color: #1e1e1e;
+    --transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+  }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: #101010cc;
+    backdrop-filter: saturate(180%) blur(20px);
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: var(--accent);
+    user-select: none;
+  }
+  nav a {
+    margin-left: 2.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  main {
+    flex: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem 2rem;
+    scroll-margin-top: 90px;
+  }
+  section {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  h1, h2, h3 {
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    letter-spacing: 0.03em;
+  }
+  h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+  h2 {
+    font-size: 2.4rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  p {
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+    padding: 1rem 2.8rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 20px var(--accent);
+    letter-spacing: 0.05em;
+    font-size: 1.1rem;
+    user-select: none;
+  }
+  .btn-primary:hover {
+    background: #00ccb8;
+    box-shadow: 0 0 30px #00ccb8;
+  }
+
+  /* Grid para servicios y equipo */
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 2.8rem;
+    margin-top: 2rem;
+  }
+  .card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px rgba(0,255,224,0.07);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 10px 40px rgba(0,255,224,0.25);
+  }
+  .card h3 {
+    margin-bottom: 0.6rem;
+    color: var(--accent);
+  }
+  .card p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* Formulario contacto */
+  form {
+    max-width: 420px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  input[type="email"] {
+    padding: 1.2rem 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: #121212;
+    color: var(--text);
+    font-size: 1rem;
+    outline-offset: 2px;
+    transition: border-color 0.3s ease;
+  }
+  input[type="email"]::placeholder {
+    color: var(--muted);
+  }
+  input[type="email"]:focus {
+    border-color: var(--accent);
+  }
+  input[type="submit"] {
+    background: var(--accent);
+    border: none;
+    font-weight: 700;
+    color: #000;
+    padding: 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.1rem;
+    box-shadow: 0 0 20px var(--accent);
+    letter-spacing: 0.04em;
+    user-select: none;
+  }
+  input[type="submit"]:hover {
+    background: #00ccb8;
+    box-shadow: 0 0 35px #00ccb8;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    background: #101010;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
     header {
-      padding: 2rem;
-      background: linear-gradient(90deg, #0f0f0f, #1a1a1a);
-      border-bottom: 1px solid #222;
+      padding: 1rem 1.5rem;
     }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: #00ffe1;
-    }
-    .nav-links a {
-      color: #f5f5f5;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-    .nav-links a:hover {
-      color: #00ffe1;
-    }
-    .hero {
-      padding: 5rem 2rem;
-      text-align: center;
-      background: radial-gradient(circle at center, #1a1a1a, #0d0d0d);
-    }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      color: #00ffe1;
-    }
-    .hero p {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      color: #ccc;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .cta-button {
-      margin-top: 2rem;
-      padding: 1rem 2rem;
-      background-color: #00ffe1;
-      color: #000;
-      font-weight: bold;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .cta-button:hover {
-      background-color: #00cbb8;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .features, .about, .roadmap, .contact {
-      margin-top: 4rem;
-    }
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      text-align: center;
-      color: #00ffe1;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-    .feature-card {
-      background-color: #1a1a1a;
-      padding: 2rem;
-      border-radius: 12px;
-      border: 1px solid #333;
-      transition: transform 0.2s ease;
-    }
-    .feature-card:hover {
-      transform: translateY(-5px);
-    }
-    .feature-title {
-      font-size: 1.2rem;
-      color: #00ffe1;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    .feature-desc {
-      color: #ccc;
-      font-size: 0.95rem;
-    }
-    footer {
-      padding: 3rem 2rem;
-      background-color: #111;
-      text-align: center;
-      border-top: 1px solid #222;
-    }
-    footer p {
-      color: #777;
+    nav a {
+      margin-left: 1.2rem;
       font-size: 0.9rem;
     }
-    .email-form input[type=email] {
-      padding: 1rem;
-      width: 100%;
-      max-width: 400px;
-      border: none;
-      border-radius: 8px;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+    h1 {
+      font-size: 2.2rem;
     }
-    .email-form button {
-      padding: 1rem 2rem;
-      background-color: #00ffe1;
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
+    h2 {
+      font-size: 1.8rem;
     }
-    .email-form button:hover {
-      background-color: #00cbb8;
+    .grid-4 {
+      grid-template-columns: 1fr;
     }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">BLOCK COREX</div>
-      <div class="nav-links">
-        <a href="#features">Productos</a>
-        <a href="#about">Quiénes somos</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#contact">Contacto</a>
-      </div>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h1>Minería de Bitcoin y soluciones cripto avanzadas</h1>
-    <p>Descubre cómo Block CoreX revoluciona la industria blockchain con servicios de minería, generación de ingresos pasivos y herramientas inteligentes impulsadas por IA.</p>
-    <button class="cta-button">Comienza ahora</button>
-  </section>
+<header>
+  <div class="logo">BLOCK COREX</div>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#ia">IA</a>
+    <a href="#equipo">Equipo</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
 
-  <section id="features" class="features">
-    <h2 class="section-title">Nuestros Productos</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3 class="feature-title">Minería BTC Automatizada</h3>
-        <p class="feature-desc">Accede a minería de Bitcoin sin complicaciones técnicas. Plataforma fácil, rápida y segura.</p>
-      </div>
-      <div class="feature-card">
-        <h3 class="feature-title">Wallets Multi-Cripto</h3>
-        <p class="feature-desc">Administra tus activos digitales con nuestra wallet segura y con soporte para múltiples blockchains.</p>
-      </div>
-      <div class="feature-card">
-        <h3 class="feature-title">Plataforma IA de Oportunidades</h3>
-        <p class="feature-desc">Detecta nuevas oportunidades de inversión gracias a algoritmos de IA y análisis en tiempo real.</p>
-      </div>
-      <div class="feature-card">
-        <h3 class="feature-title">Pagos con Cripto y Fiat</h3>
-        <p class="feature-desc">Acepta pagos globales en Bitcoin, Ethereum, Binance Pay, tarjetas y más.</p>
-      </div>
+<main>
+
+<section id="inicio" class="animate-on-scroll">
+  <h1>Minería en la nube, IA y servicios cripto de última generación</h1>
+  <p>En <strong>Block CoreX</strong> combinamos minería avanzada en la nube con soluciones basadas en inteligencia artificial para maximizar tus oportunidades en el ecosistema blockchain.</p>
+  <button class="btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Solicita información</button>
+</section>
+
+<section id="servicios" class="animate-on-scroll">
+  <h2>Servicios que ofrecemos</h2>
+  <div class="grid-4">
+    <div class="card">
+      <h3>Minería en la nube</h3>
+      <p>Gestionamos granjas con hardware especializado y energía renovable para ofrecerte acceso rentable sin complicaciones técnicas.</p>
     </div>
-  </section>
+    <div class="card">
+      <h3>Wallet multi-cripto segura</h3>
+      <p>Administra tus activos digitales desde una wallet intuitiva con soporte para Bitcoin, Ethereum, Binance Smart Chain y tokens compatibles.</p>
+    </div>
+    <div class="card">
+      <h3>Pagos globales integrados</h3>
+      <p>Procesa pagos en criptomonedas y monedas fiduciarias, integrando Stripe, Binance Pay, PayPal, Lightning Network y más.</p>
+    </div>
+    <div class="card">
+      <h3>Soluciones personalizadas con IA</h3>
+      <p>Usamos inteligencia artificial para análisis predictivo, automatización, soporte inteligente y generación de alertas personalizadas.</p>
+    </div>
+  </div>
+</section>
 
-  <section id="about" class="about">
-    <h2 class="section-title">¿Quiénes somos?</h2>
-    <p>Block CoreX es una empresa de tecnología financiera centrada en la innovación blockchain. Nuestro equipo combina expertos en desarrollo de software, economía digital e inteligencia artificial. Buscamos democratizar el acceso a servicios financieros a través de soluciones confiables, escalables y seguras.</p>
-  </section>
+<section id="ia" class="animate-on-scroll">
+  <h2>Inteligencia Artificial integrada en Block CoreX</h2>
+  <p>La IA es el núcleo de nuestra innovación:</p>
+  <ul style="max-width:700px; margin: 0 auto 2.5rem auto; list-style-type: none; padding-left: 0; color: var(--muted); font-size: 1.1rem;">
+    <li>✔ Análisis en tiempo real de tendencias y oportunidades de mercado.</li>
+    <li>✔ Optimización continua de la minería para maximizar ganancias.</li>
+    <li>✔ Soporte 24/7 con bots inteligentes y asistentes virtuales.</li>
+    <li>✔ Informes y alertas personalizadas para cada usuario.</li>
+  </ul>
+  <p style="max-width:700px; margin: 0 auto; color: var(--muted); font-size: 1.1rem;">Trabajamos con GPT, LLaMA, Groq y Stable Diffusion para mantener la vanguardia tecnológica.</p>
+</section>
 
-  <section id="roadmap" class="roadmap">
-    <h2 class="section-title">Nuestro Roadmap</h2>
-    <ul>
-      <li><strong>Q3 2025:</strong> Lanzamiento de la plataforma de minería BTC.</li>
-      <li><strong>Q4 2025:</strong> Integración con wallets y pagos internacionales.</li>
-      <li><strong>Q1 2026:</strong> Inteligencia artificial para predicción de oportunidades cripto.</li>
-      <li><strong>Q2 2026:</strong> Expansión global con soporte 24/7.</li>
-    </ul>
-  </section>
+<section id="equipo" class="animate-on-scroll">
+  <h2>Conoce a nuestro equipo y filosofía</h2>
+  <p style="max-width:700px; margin: 0 auto 2rem auto; color: var(--muted); font-size: 1.1rem;">
+    Somos un equipo multidisciplinario con experiencia en blockchain, inteligencia artificial, finanzas descentralizadas y desarrollo de software.
+  </p>
+  <div class="grid-4">
+    <div class="card">
+      <h3>Carlo M.</h3>
+      <p>CEO y visionario con más de 10 años en desarrollo fintech y blockchain.</p>
+    </div>
+    <div class="card">
+      <h3>Laura G.</h3>
+      <p>Experta en IA y modelos de lenguaje, lidera innovación y desarrollo.</p>
+    </div>
+    <div class="card">
+      <h3>Daniel R.</h3>
+      <p>Ingeniero blockchain, responsable de seguridad y arquitectura.</p>
+    </div>
+    <div class="card">
+      <h3>Equipo global</h3>
+      <p>Colaboradores en 5 países, comprometidos con la descentralización y la transparencia.</p>
+    </div>
+  </div>
+</section>
 
-  <section id="contact" class="contact">
-    <h2 class="section-title">Contáctanos</h2>
-    <p>¿Listo para comenzar o tienes dudas? Déjanos tu correo y te contactaremos.</p>
-    <form class="email-form">
-      <input type="email" placeholder="blockcorecontact@gmail.com" required>
-      <br>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+<section id="contacto" class="animate-on-scroll" style="text-align:center;">
+  <h2>Contacto y acceso anticipado</h2>
+  <p style="max-width:600px; margin: 0 auto 1.5rem auto; color: var(--muted); font-size: 1.1rem;">
+    Sé de los primeros en acceder a nuestra plataforma y recibir noticias exclusivas.
+  </p>
+  <form onsubmit="alert('¡Gracias por contactar a Block CoreX!'); return false;">
+    <input type="email" placeholder="tu@email.com" required aria-label="Correo electrónico" />
+    <input type="submit" value="Enviar" />
+  </form>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Block CoreX. Todos los derechos reservados.</p>
-  </footer>
+</main>
+
+<footer>
+  &copy; 2025 Block CoreX. Todos los derechos reservados.
+</footer>
+
+<script>
+  // Animaciones al hacer scroll: agrega clase .visible cuando el elemento entra en viewport
+  const animateEls = document.querySelectorAll('.animate-on-scroll');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.2});
+  animateEls.forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
